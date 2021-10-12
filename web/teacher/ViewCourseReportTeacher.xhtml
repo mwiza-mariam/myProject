@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+
+        
+    </h:head>
+    <h:body>
+
+        <ui:composition template="templateTeacher.xhtml">
+            <ui:define name="title">Uko amasomo yasuwe</ui:define>
+            
+            <ui:define name="content">
+                <table class="data-table table stripe hover nowrap">
+                    <thead>
+                        <th >code y'Isomo</th>
+                        <th >Izina ry'isomo</th>
+                        
+                        <th>Inshuro isomo ryasuwe</th>
+                     
+
+
+                    </thead>
+                    <tbody>
+                        <c:forEach items="#{courseModel.listOfCourses}" var="item" > 	
+                            <tr>
+
+                                <td>${item.courseCode}</td>
+                                <td>${item.chapter}</td>
+                                <td>#{item.visit}</td>
+                                
+
+                            </tr>
+                        </c:forEach>
+
+                    </tbody>
+                </table>
+               <h:form>
+                   <h:commandButton value="Uko amasomo yasuwe" action="#{courseModel.printReport()}" class="btn btn-primary"></h:commandButton>
+                    
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

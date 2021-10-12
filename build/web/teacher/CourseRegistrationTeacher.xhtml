@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        
+
+        <!-- Basic Page Info -->
+        <meta charset="utf-8"/>
+        <title>Iga ikinyarwanda</title>
+
+        <!-- Site favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../vendors/images/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="../vendors/images/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="../vendors/images/favicon-16x16.png"/>
+
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800" rel="stylesheet"/>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="../vendors/styles/core.css"/>
+        <link rel="stylesheet" type="text/css" href="../vendors/styles/icon-font.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../src/plugins/datatables/css/dataTables.bootstrap4.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../src/plugins/datatables/css/responsive.bootstrap4.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../vendors/styles/style.css"/>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-119386393-1');
+        </script>
+    </h:head>
+    <h:body>
+<ui:composition template="templateTeacher.xhtml">
+            <ui:define name="title">Ongeramo amasomo</ui:define>
+            
+            <ui:define name="content">
+
+                    
+                         
+                                
+<h:form class="tab-wizard2 wizard-circle wizard" enctype="multipart/form-data">
+							 <h:messages errorClass="alert alert-danger" infoClass="alert alert-success"/>
+								
+                                                            <h5 style="text-align: center;margin-top: 10px;margin-left: 30px;">Ongeramo isomo</h5>
+								
+                                                            <div class="form-wrap max-width-600 mx-auto" style="margin-top: 20px;">
+										
+                                                                <div class="form-group row">
+											<h:outputLabel value="Course:" for="course" class="col-sm-4 col-form-label" />
+                                                                                        <h:selectOneMenu id="subscriptionTypeId" value="#{courseModel.subId}" title="hitamo ikiciro cy'isomo" style="width: 220px;margin-left: 150px;height: 40px;margin-top: -35px">
+                       
+                                                                                            <f:selectItems value="#{courseModel.listOfSubscriptionType}" var="item" itemValue="#{item.subscriptionTypeId}" itemLabel="#{item.levels}" />
+                                                             </h:selectOneMenu>
+										</div>
+									<div class="form-group row">
+											<label class="col-sm-4 col-form-label">andika code y'isomo*</label>
+											<div class="col-sm-8">
+                                                                                            <h:inputText id="code" value="#{courseModel.course.courseCode}"  required=" true" requiredMessage="andika code y'isomo" title="coursecode" class="form-control"/>
+                                                                                            <h:message for="code" style="color:red" />
+                                                                                        </div>
+										</div>
+                                                                <div class="form-group row">
+											<label class="col-sm-4 col-form-label">Izina ry'isomo*</label>
+											<div class="col-sm-8">
+                                                                                            <h:inputText id="chapter" value="#{courseModel.course.chapter}" required="true" requiredMessage="andika izina ry'isomo" title="content" class="form-control"/>
+											<h:message for="chapter" style="color:red" />
+                                                                                        </div>
+										</div>
+                                                                
+                                                                                 <div class="form-group row">
+											
+                                                                                <div class="col-sm-8"  >
+                                                                                    <h:commandButton action="#{courseModel.saveCourse()}" value="Ohereza"  style="width: 220px;margin-left: 130px;" class="btn btn-primary"></h:commandButton>	
+											</div>
+										</div>
+                                        
+                        </div>
+                                          </h:form>
+                   
+            </ui:define>
+</ui:composition>
+
+
+
+
+              
+        
+
+
+        <!-- js -->
+        <script src="../vendors/scripts/core.js"></script>
+        <script src="../vendors/scripts/script.min.js"></script>
+        <script src="../vendors/scripts/process.js"></script>
+        <script src="../vendors/scripts/layout-settings.js"></script>
+        <script src="../src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+        <script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+        <!-- buttons for Export datatable -->
+        <script src="../src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.print.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.html5.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.flash.min.js"></script>
+        <script src="../src/plugins/datatables/js/pdfmake.min.js"></script>
+        <script src="../src/plugins/datatables/js/vfs_fonts.js"></script>
+        <!-- Datatable Setting js -->
+        <script src="../vendors/scripts/datatable-setting.js"></script>
+    </h:body>
+</html>

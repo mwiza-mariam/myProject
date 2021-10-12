@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+
+        <!-- Basic Page Info -->
+        <meta charset="utf-8"/>
+        
+
+    </h:head>
+    <h:body>
+
+        <ui:composition template="template.xhtml">
+            <ui:define name="title">Ibihugu  Byose</ui:define>
+            
+            <ui:define name="content">
+                <h:form class="tab-wizard2 wizard-circle wizard">
+ <h:messages errorClass="alert alert-danger" infoClass="alert alert-success"/>
+
+                    <h5 style="text-align: center;margin-top: 10px;margin-left: 30px;">Ongeramo igihugu</h5>
+
+                    <div class="form-wrap max-width-600 mx-auto" style="margin-top: 20px;">
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">code*</label>
+                            <div class="col-sm-8">
+                                <h:inputText id="code" value="#{addressModel.add.code}"  required="true" requiredMessage="andika code ry'igihugu" title=" country code" class="form-control"/>
+                                <h:message for="code" style="color: red"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Izina ry'Igihugu*</label>
+                            <div class="col-sm-8">
+                                <h:inputText id="name" value="#{addressModel.add.name}"  required=" true" requiredMessage="andika izina ry'igihugu" title=" country name" class="form-control"/>
+                                <h:message for="name" style="color: red"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+
+                            <div class="col-sm-8"  >
+                                <h:commandButton action="#{addressModel.addcountry()}" value="Ohereza"  style="width: 220px;margin-left: 130px;" class="btn btn-primary"></h:commandButton>	
+                            </div>
+                        </div>
+
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+     
+     
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="title">Abalimu bose</ui:define>
+            
+            <ui:define name="content">
+        <f:view>
+
+
+            <h:form class="tab-wizard2 wizard-circle wizard">
+                <h:message for="" errorClass="alert alert-danger" infoClass="alert alert-success"/>
+                <h5 style="text-align: center;margin-top: 10px;margin-left: 30px;">Ongeramo Umwalimu</h5>
+								
+            <div class="form-wrap max-width-600 mx-auto" style="margin-top: 20px;">
+										
+             <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Izina rya mbere*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="fname" value="#{teacher.teacher.fname}" required="true" requiredMessage="andika izina rya mbere ry'umwalimu" title="first name" class="form-control" />
+                        <h:message for="fname" style="color: red"/>
+                    </div>
+             </div>
+               <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Izina rya nyuma*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="lname" value="#{teacher.teacher.lname}" required="true" requiredMessage="andika izina rya nyuma ry'umwalimu"  title="last name" class="form-control" />
+                   <h:message for="lname" style="color: red"></h:message>
+                    </div>
+             </div>
+                    
+                    <div class="form-group row">
+               <label class="col-sm-4 col-form-label">nid*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="nid" value="#{teacher.teacher.nid}" required="true" requiredMessage="andika n0 yi'indangamuntu y'umwalimu"   title="national id" class="form-control" >
+                            <f:validator validatorId="nidValidator"/>
+                        </h:inputText>
+                        <h:message for="nid" style="color: red"></h:message>
+                    </div>
+             </div>
+                    <div class="form-group row">
+               <label class="col-sm-4 col-form-label">email*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="email" value="#{teacher.teacher.email}" required="true" requiredMessage="andika email  y'umwalimu"  title="email" class="form-control" >
+                        <f:validator validatorId="emailValidator"/>
+                        </h:inputText>
+                        <h:message for="email" style="color:red"/>
+                    </div>
+             </div>
+                    <div class="form-group row">
+               <label class="col-sm-4 col-form-label">telephoni*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="phone" value="#{teacher.teacher.phone}" requiredMessage="andika telephoni  y'umwalimu"  required="true" title="telephone" class="form-control" >
+                       <f:validator validatorId="phoneValidator"></f:validator>
+                        </h:inputText>
+                        <h:message for="phone" style="color: red"></h:message>
+                    </div>
+             </div>
+                <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Ijambobanga*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputSecret   id="password" value="#{teacher.teacher.password}" required="true" requiredMessage="andika ijambobanga ry'umwalimu"  title="password" class="form-control" />
+                   <h:message for="password" style="color: red"></h:message>
+                    </div>
+             </div>
+                <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Ongera wandike Ijambobanga*</label>
+               
+                    <div class="col-sm-8">
+                    
+                        <h:inputSecret id="cpassword" value="#{teacher.teacher.cpassword}"  required="true" requiredMessage=" ongera wandike andika ijambo banga ry'umwalimu" title="confirm password" class="form-control" />
+                    <h:message for="cpassword" style="color: red"></h:message>
+                    </div>
+             </div>
+                   <div class='form-group row'>
+                                            <h:outputLabel value="Address:" for="address" class="col-sm-4 col-form-label" />
+                                            <h:selectOneMenu id="address" value="#{teacher.addressCode}" required="true" requiredMessage="andika igihugu umwalimu avukamo "  title="Address" style="width: 220px;margin-left: 150px;height: 40px;margin-top: -35px">
+
+                                                <f:selectItems value="#{teacher.addressList}" var="item" itemValue="#{item.code}" itemLabel="#{item.name}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                 <div class="form-group row">
+              
+                    <div class="col-sm-8">
+                    
+                        <h:commandButton action="#{teacher.createTeacher()}"  value="Ongeramo Mwalimu" class="btn btn-primary"/>
+                    </div>
+             </div>   
+            </div>
+                
+            </h:form>
+        </f:view>
+
+                </ui:define>
+        </ui:composition>
+        
+    </h:body>
+</html>
+

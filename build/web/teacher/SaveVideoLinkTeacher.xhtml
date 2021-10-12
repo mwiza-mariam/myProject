@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templateTeacher.xhtml">
+            <ui:define name="title">Ongeramo Umuyoboro</ui:define>
+            
+            <ui:define name="content">
+        <f:view>
+
+
+            <h:form class="tab-wizard2 wizard-circle wizard">
+               <h:messages errorClass="alert alert-danger" infoClass="alert alert-success"/>
+                <h5 style="text-align: center;margin-top: 10px;margin-left: 30px;">Ongeramo Ikiciro</h5>
+								
+            <div class="form-wrap max-width-600 mx-auto" style="margin-top: 20px;">
+										
+             <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Izina*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="title" value="#{video.video.title}"  required="true" requiredMessage=" andika Izina ry'umuyoboro " title="Title" class="form-control" />
+                        <h:message for= "title" style="color:  red" />
+                    </div>
+             </div>
+               <div class="form-group row">
+                     <label class="col-sm-4 col-form-label">Umuyoboro*</label>
+                 <div class="col-sm-8">
+                  
+                 
+                     <h:inputText id="url" value="#{video.video.url}" required="true" requiredMessage="ongeramo umuyoboro" title="Url" class="form-control" />
+                    <h:message for="url" style="color: red" />
+                 </div>
+                     <div class="col-sm-8">
+                    <h:commandButton value="bika umuyoboro" action="#{video.createLink()}" class="btn btn-primary"></h:commandButton>
+                 </div>
+               </div>
+            </div>
+                
+            </h:form>
+        </f:view>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,38 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk >
+<div  sclass="vert" >
+
+
+<hbox   apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('cultureLearning.cultureLearning.model.CommentModel')" xmlns:h="http://www.w3.org/1999/xhtml"
+
+xmlns:f="http://www.w3.org/1999/xhtml"
+xmlns:zk="http://www.zkoss.org/2005/zk"
+>
+<grid style="border:none; margin-left:-150px; width:1010px; height:500px;" >
+<rows>
+<row> <label value="Tanga igitekerezo" sclass="account"></label></row>
+<row>
+
+<textbox value="@bind(vm.comment.email)"  placeholder="email" style="width:900px;margin-left:20px;" />
+</row>
+<row>
+
+<tbeditor value="@save(vm.comment.comments)"   style="width:900px; margin-left:20px;height:300px;"  /> 
+</row>
+
+<row>
+<button id="save" iconSclass="z-icon-comment" label="Ohereza Igitekerezo" onClick="@command('save')" style="width:900px; margin-left:20px; margin-top:20px;" ></button>
+</row>
+</rows>
+
+</grid>
+</hbox>
+<div sclass="translate"  style="margin-top:57px;" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('cultureLearning.cultureLearning.model.UserModel')">
+	<label value="@load(vm.translationResult)"/>
+	<textbox placeholder="andika ijambo" value="@save(vm.translationText)"   ></textbox>
+	<button label="Hindura"  onClick ="@command('translate')"  ></button>
+	
+</div>
+</div>
+
+</zk>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+
+    </h:head>
+    <h:body>
+
+
+        <ui:composition template="templateTeacher.xhtml">
+            <ui:define name="title">Ongeramo ibigize isomo</ui:define>
+           
+            <ui:define name="content">
+      
+                        <div class="pb-20">
+                            <table class="data-table table stripe hover nowrap">
+                                <thead>
+                                    <th >id</th>
+                                    <th >Ikiciro</th>
+                                    <th>Igiciro</th>
+                                    
+                                    
+
+
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="#{cat.subscriptionList}" var="item" > 	
+                                        <tr>
+
+                                            <td>${item.subscriptionTypeId}</td>
+                                            <td>${item.levels}</td>
+                                            <td>#{item.price}</td>
+                                            
+
+<!--                                           <td><h:form>
+                                                <div  class="row form-group">
+                                                    
+                                                    <h:commandButton value="Vugurura" action="#//{cat.updateSubscription(item)}" class="btn btn-primary"/>											
+                                                    
+                                                          
+                                                    
+                                                    <h:commandButton value="Siba" action="#//{cat.deleteSubscription(item)}" class="btn btn-danger " style="margin-left: 70px"/>
+
+                                                    </div>
+                                                    </h:form>
+                                            </td>-->
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+                            </table>
+                        </div>
+                   
+
+            </ui:define>
+        </ui:composition>
+
+
+
+               
+
+        <!-- js -->
+        <script src="../vendors/scripts/core.js"></script>
+        <script src="../vendors/scripts/script.min.js"></script>
+        <script src="../vendors/scripts/process.js"></script>
+        <script src="../vendors/scripts/layout-settings.js"></script>
+        <script src="../src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+        <script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+        <!-- buttons for Export datatable -->
+        <script src="../src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.print.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.html5.min.js"></script>
+        <script src="../src/plugins/datatables/js/buttons.flash.min.js"></script>
+        <script src="../src/plugins/datatables/js/pdfmake.min.js"></script>
+        <script src="../src/plugins/datatables/js/vfs_fonts.js"></script>
+        <!-- Datatable Setting js -->
+        <script src="../vendors/scripts/datatable-setting.js"></script>
+    </h:body>
+</html>

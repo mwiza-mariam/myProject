@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+
+        <!-- Basic Page Info -->
+        <meta charset="utf-8"/>
+        <title>Iga Ikinyarwanda</title>
+
+        <!-- Site favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../vendors/images/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="../vendors/images/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="../vendors/images/favicon-16x16.png"/>
+
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800" rel="stylesheet"/>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="../vendors/styles/core.css"/>
+        <link rel="stylesheet" type="text/css" href="../vendors/styles/icon-font.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../src/plugins/datatables/css/dataTables.bootstrap4.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../src/plugins/datatables/css/responsive.bootstrap4.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../vendors/styles/style.css"/>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-119386393-1');
+        </script>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="template.xhtml">
+            <ui:define name="title">Raport Y'Imari</ui:define>
+            
+            <ui:define name="content">
+                <table class="data-table table stripe hover nowrap">
+                    <thead>
+                        <th >Transaction Id</th>
+                        <th >Stage</th>
+                        
+                        <th>Izina rya mbere</th>
+                     <th>Izina rya nyuma</th>
+                     <th> Ikiciro yishyuriye</th>
+                        <th> Umuyoboro</th>
+                     <th> external transaction id</th>
+
+                    </thead>
+                    <tbody>
+                        <c:forEach items="#{transaction.paidTransactionList}" var="item" > 	
+                            <tr>
+
+                                <td>${item.transactionId}</td>
+                                <td>#{item.stage}</td>
+                                <td>${item.user.fname}</td>
+                                <td>#{item.user.lname}</td>
+                                <td>#{item.subscriptiontype.levels}</td>
+                                <td>#{item.channel}</td>
+                                <td>#{item.externalTransactionId}</td>
+                                
+                                
+
+                            </tr>
+                        </c:forEach>
+
+                    </tbody>
+                </table>
+               <h:form>
+                   <h:commandButton value="Raporo y'imari" action="#{transaction.printReport()}" class="btn btn-primary"></h:commandButton>
+                    
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

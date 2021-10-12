@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="title">Ongeramo Ikiciro</ui:define>
+            
+            <ui:define name="content">
+        <f:view>
+
+
+            <h:form class="tab-wizard2 wizard-circle wizard">
+                <h:messages errorClass="alert alert-danger" infoClass="alert alert-success"/>
+                <h5 style="text-align: center;margin-top: 10px;margin-left: 30px;">Ongeramo Ikiciro</h5>
+								
+            <div class="form-wrap max-width-600 mx-auto" style="margin-top: 20px;">
+		
+                <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Id*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="id" value="#{cat.stype.subscriptionTypeId}" required="true" requiredMessage="andika code y'ikiciro" title="Title" class="form-control" />
+                        <h:message for="id" style="red" />
+                    </div>
+             </div>
+             <div class="form-group row">
+               <label class="col-sm-4 col-form-label">Igiciro*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="price" value="#{cat.stype.price}" required="true" requiredMessage="Andika igiciro ikiciro cyishurwa" title="price" class="form-control" />
+                   
+                        <h:message for="price" style="color: red" />                    </div>
+             </div>
+               <div class="form-group row">
+                     <label class="col-sm-4 col-form-label">Ikiciro*</label>
+                 <div class="col-sm-8">
+                  
+                 
+                     <h:inputText id="levell" value="#{cat.stype.levels}"  required=" true" requiredMessage=" izina ry'ikiciro" title="category name" class="form-control" />
+                 
+                     <h:message for="level" style="color: red" />
+                 </div>
+                     <div class="col-sm-8">
+                         <h:commandButton value="Ongeramo Ikiciro" action="#{cat.createSubscription()}" class="btn btn-primary"></h:commandButton>
+                 </div>
+               </div>
+            </div>
+                
+            </h:form>
+        </f:view>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

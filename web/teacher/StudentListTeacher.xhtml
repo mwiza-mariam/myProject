@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+
+       
+    </h:head>
+    <h:body>
+
+        <ui:composition template="templateTeacher.xhtml">
+            <ui:define name="title">Abanyeshuri bose</ui:define>
+            
+            <ui:define name="content">
+                <table class="data-table table stripe hover nowrap">
+                    <thead>
+                        <th >Izina rya mbere</th>
+                        <th >Izina rya nyuma</th>
+                        <th>N0 Indangamuntu</th>
+                        <th>Telephoni</th>
+                        <th>email</th>
+                        <th>Igihugu akomokamo</th>
+                      
+
+
+                    </thead>
+                    <tbody>
+                        <c:forEach items="#{student.listStudent}" var="item" > 	
+                            <tr>
+
+                                <td>${item.fname}</td>
+                                <td>${item.lname}</td>
+                                <td>#{item.nid}</td>
+                                <td>#{item.phone} </td>
+                                <td>#{item.email}</td>
+                                <td>#{item.address}</td>
+
+                                
+                            </tr>
+                        </c:forEach>
+                        
+                    </tbody>
+                </table>
+                <h:form>
+                        	
+                        <h:commandButton value="raporo y'abanyeshuri" action="#{student.printReport()}" class="btn btn-primary"></h:commandButton>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

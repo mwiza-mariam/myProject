@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Iga Ikinyarwanda</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="title">Vugururra igihugu  </ui:define>
+            
+            <ui:define name="content">
+        <f:view>
+
+
+            <h:form class="tab-wizard2 wizard-circle wizard">
+                <h:messages errorClass="alert alert-danger" infoClass="alert alert-success"/>
+
+                <h5 style="text-align: center;margin-top: 10px;margin-left: 30px;">Vugurura igihugu</h5>
+								
+            <div class="form-wrap max-width-600 mx-auto" style="margin-top: 20px;">
+										
+             <div class="form-group row">
+               <label class="col-sm-4 col-form-label">code*</label>
+                    <div class="col-sm-8">
+                    
+                        <h:inputText id="title" value="#{addressModel.add.code}" title="Title" class="form-control" />
+                    </div>
+             </div>
+               <div class="form-group row">
+                     <label class="col-sm-4 col-form-label">Izina ry'igihugu*</label>
+                 <div class="col-sm-8">
+                  
+                 
+                     <h:inputText id="url" value="#{addressModel.add.name}" title="Url" class="form-control" />
+                 </div>
+                     <div class="col-sm-8">
+                         <h:commandButton value="Vugurura Igihugu" action="#{addressModel.updatecountry()}" class="btn btn-primary"></h:commandButton>
+                 </div>
+               </div>
+            </div>
+                
+            </h:form>
+        </f:view>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
